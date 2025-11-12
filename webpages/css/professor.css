@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #f0f3f7;
+}
+
+/* TOP BAR */
+header {
+    width: 100%;
+    padding: 20px;
+    background: #283c63;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* MAIN AREA */
+.assignment-area {
+    padding: 30px;
+}
+
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background: #3b7ec4;
+}
+
+.assignment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.assignment-card {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    position: relative;
+    transition: all .3s;
+    display: flex; /* Added for easier vertical layout */
+    flex-direction: column; /* Stack children vertically */
+    gap: 10px; /* Space between elements */
+}
+
+.assignment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.assignment-card h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgb(255, 80, 80);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: rgb(240, 50, 50);
+}
+
+.assignment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- NEW STYLES START HERE --- */
+
+/* Description Text */
+.assignment-description {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Preserves line breaks from the textarea */
+    word-break: break-word; /* Prevents long text from overflowing */
+    min-height: 40px; /* Ensures space even if empty */
+}
+
+.assignment-description i {
+    color: #888;
+}
+
+/* Common styles for text inputs and textareas */
+.form-input,
+.form-textarea,
+.edit-description {
+    width: 100%;
+    box-sizing: border-box; /* Important for padding to work */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Textareas */
+.form-textarea,
+.edit-description {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* New Assignment Form Card */
+.new-assignment-form {
+    background: #fdfdfd;
+    border-style: dashed;
+}
+
+.form-controls {
+    display: flex;
+    gap: 10px;
+}
+
+/* Edit Mode */
+.edit-mode {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Button variants */
+.save-new-btn,
+.save-edit-btn {
+    background-color: #28a745; /* Green */
+}
+.save-new-btn:hover,
+.save-edit-btn:hover {
+    background-color: #218838;
+}
+
+.cancel-new-btn,
+.cancel-edit-btn {
+    background-color: #6c757d; /* Gray */
+}
+.cancel-new-btn:hover,
+.cancel-edit-btn:hover {
+    background-color: #5a6268;
+}
+
+.edit-btn {
+    background-color: #ffc107; /* Yellow */
+    color: #212529;
+}
+.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+/* --- BUG FIX: Removed the extra '}' syntax error that was here --- */

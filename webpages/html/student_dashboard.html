@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="../css/student_dashboard.css">
+</head>
+
+<body>
+
+    <!-- SECTION 1: HEADER -->
+    <header>
+        <div class="profile-icon">👤</div>
+        <h2 id="student-name">Welcome, Student Name</h2>
+    </header>
+
+    <div class="container">
+
+        <!-- SECTION 2: To-Do List -->
+        <div class="todo-section">
+            <h3>To-Do List</h3>
+
+            <div id="todo-list" class="list-box"></div>
+
+            <div class="todo-input">
+                <input type="text" id="todo-item" placeholder="Add task...">
+                <button id="add-todo">Add</button>
+            </div>
+        </div>
+
+        <!-- SECTION 3: Assignments -->
+        <div class="assignment-section">
+            <h3>Assignments</h3>
+
+            <label class="upload-btn">
+                Upload Assignment
+                <input type="file" id="assignment-upload" hidden>
+            </label>
+
+            <div id="assignment-list" class="assignment-box"></div>
+        </div>
+        <div id="student-assignment-list"></div>
+
+
+    </div>
+
+    <script src="../js/student_dashboard.js"></script>
+</body>
+</html>

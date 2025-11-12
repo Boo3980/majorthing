@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AIMS Login</title>
+    <link rel="stylesheet" href="../css/login_styles.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h1>Academic Integrity Login</h1>
+
+        <input type="email" id="email" placeholder="Enter email">
+        <input type="password" id="password" placeholder="Enter password">
+
+        <select id="role">
+            <option value="student">Student</option>
+            <option value="professor">Professor</option>
+        </select>
+
+        <p id="error" class="error"></p>
+
+        <button onclick="loginUser()">Login</button>
+    </div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>

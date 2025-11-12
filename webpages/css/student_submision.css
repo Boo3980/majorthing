@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #eff3f9;
+}
+
+header {
+    padding: 20px;
+    background: #283c63;
+    color: white;
+    font-size: 22px;
+}
+
+.content {
+    padding: 30px;
+}

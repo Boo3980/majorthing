@@ -1,0 +1,101 @@
+Convolutional Neural Networks (ConvNets) are a powerful type of deep learning model specifically designed for processing and analyzing visual data, such as images and videos. They have revolutionized the field of Computer Vision, enabling remarkable advancements in tasks like Image Recognition, Object Detection, and Image Segmentation.
+
+To grasp the essence of Convolutional Neural Networks (CNNs), it is essential to have a solid understanding of the basics of Deep Learning and acquaint yourself with the terminology and principles of neural networks. If you’re new to this, don’t fret! I have previously covered these fundamentals in my blog posts, serving as primers to help you lay a strong foundation. It is highly recommended to explore these primers before delving into the intricate world of CNNs 👇
+Deep Learning Essentials 🧠
+Everything you need to know about Deep Learning - from Neuron to Neural Networks 🔥
+
+medium.com
+Computer Vision Fundamentals with OpenCV
+Humans are inherently visual creatures. We see we hear, we learn. Computer Vision is inspired by the human vision…
+
+medium.com
+Basic Architecture
+
+The architecture of Convolutional Neural Networks is meticulously designed to extract meaningful features from complex visual data. This is achieved through the use of specialized layers within the network architecture, It comprises three fundamental layer types:
+
+    Convolutional Layers
+    Pooling Layers
+    Fully-Connected Layers
+
+Image Source: Research Gate
+
+Now, let’s delve into each of these layers in detail to gain a deeper understanding of their role and significance in Convolutional Neural Networks (ConvNets).
+The Convolution Layer
+
+The convolutional layer serves as the fundamental building block within a Convolutional Neural Network (CNN), playing a central role in performing the majority of computations. It relies on several key components, including input data, filters, and feature maps.
+
+Convolution preserves the spatial relationship between pixels by learning image features using small squares of input data. It is a tensor operation (dot product) where two tensors serve as input, and a resulting tensor is generated as the output. This layer employs a tile-like filtering approach on an input tensor using a small window known as a kernel. The kernel specifies the specific characteristics that the convolution operation seeks to filter, generating a significant response when it detects the desired features. To explore further details about various kernels and their functionalities, refer here.
+
+The convolutional layer computes a dot product between the filter value and the image pixel values, and the matrix formed by sliding the filter over the image is called the Convolved Feature, Activation Map, or Feature Map.
+Press enter or click to view image in full size
+Image Source:
+
+Each element from one tensor(image pixel) is multiplied by the corresponding element (the element in the same position) of the second tensor(kernel value), and then all the values are summed to get the result.
+Image Source: NVIDIA
+
+The behavior of the convolutional layer is primarily governed by the following main hyperparameters:
+
+    Kernel size: It determines the size of the sliding window. It is generally recommended to use smaller window sizes, preferably odd values such as 1, 3, 5, and occasionally, rarely 7.
+    Stride: The stride parameter determines the number of pixels the kernel window will move during each step of convolution. Typically, it is set to 1 to ensure that no locations are missed in an image. However, it can be increased if the intention is to simultaneously reduce the input size.
+    Padding: Padding refers to the technique of adding zeros to the border of an image. By applying padding, the kernel can fully filter every position of an input image, ensuring that even the edges are properly processed.
+    Number of filters /Depth: The number of filters in a convolutional layer determines the number of patterns or features that the layer will seek to identify. In other words, it governs the number of distinct characteristics or elements that the convolutional layer will focus on detecting.
+
+The output size of the convoluted layer is determined by several factors, including the input size, kernel size, stride, and padding. The formula to calculate the output size is as follows:
+Press enter or click to view image in full size
+Image By Author: Output size of the convolution image
+
+Let’s take an example to better understand this concept. Imagine we have an input image with dimensions of 6x6 pixels. For the convolutional operation, we use a kernel with dimensions of 3x3 pixels, a stride of 1, and no padding (padding of 0).
+Get Afaque Umer’s stories in your inbox
+
+Join Medium for free to get updates from this writer.
+
+To calculate the output size of the convoluted image, we can apply the following formula: output_size = 1 + (input_size — kernel_size + (2 * padding)) / stride.
+
+Plugging in the values, we get: output_size = 1 + (6–3 + (2 * 0)) / 1 = 1 + (3 / 1) = 1 + 3 = 4.
+Press enter or click to view image in full size
+Image By Author: Convolution on 2D Image / Single Channel
+
+Hence, the resulting convoluted image will have dimensions of 4x4 pixels.
+
+When the input has more than one channel (e.g. an RGB image), the filter should have a matching number of channels. To calculate one output cell, perform convolution on each matching channel, then add the result together.
+Image By Author: Convolution on RGB Image
+
+After each convolution operation, a CNN applies a Rectified Linear Unit (ReLU) transformation to the feature map, introducing nonlinearity to the model.
+The Pooling Layer
+
+Pooling layers, also referred to as downsampling, serve to reduce the dimensionality of the input, thereby decreasing the number of parameters. Similar to convolutional layers, pooling operations involve traversing a filter across the input. However, unlike convolutional layers, the pooling filter does not possess weights. Instead, the filter applies an aggregation function to the values within its receptive field, generating the output array. Two primary types of pooling are commonly employed:
+
+    Max Pooling: It selects the pixel with the maximum value to send to the output array.
+    Average pooling: It calculates the average value within the receptive field to send to the output array.
+
+Press enter or click to view image in full size
+Image By Author: Max Pooling
+
+Pooling offers a significant advantage in that it does not require learning any parameters. However, this attribute also presents a potential drawback as pooling may discard crucial information. While pooling serves to reduce dimensionality and extract key features, there is a possibility that important details can be lost during this process.
+Fully-Connected Layer
+
+The Fully Connected Layer a.k.a dense layer aims to provide global connectivity between all neurons in the layer. Unlike convolutional and pooling layers, which operate on local spatial regions, the fully connected layer connects every neuron to every neuron in the previous and subsequent layers.
+Press enter or click to view image in full size
+Image Source: Here
+
+The fully connected layer typically appears at the end of the ConvNet architecture, taking the flattened feature maps from the preceding convolutional and pooling layers as input. Its purpose is to combine and transform these high-level features into the final output, such as class probabilities or regression values, depending on the specific task. While convolutional and pooling layers tend to use ReLu functions, FC layers usually leverage a softmax activation function to classify inputs appropriately, producing a probability from 0 to 1.
+
+This layer converts a three-dimensional layer in the network into a one-dimensional vector to fit the input of a fully-connected layer for classification. For example, a 5x5x2 tensor would be converted into a vector of size 50. This part is in principle the same as a regular Neural Network.
+
+Now that we have explored the concepts of convolution, pooling, and fully connected layers individually, let’s combine them to understand the basic architecture of a Convolutional Neural Network (CNN). In a typical CNN, the input data passes through a series of convolutional layers, which extract features using filters. The output of each convolutional layer is then downsampled using pooling layers to reduce dimensionality and capture the most salient information. Finally, the resulting feature maps are flattened and fed into one or more fully connected layers, which perform the classification or regression tasks.
+Press enter or click to view image in full size
+A Sample Convnet: Resource
+
+This combination of convolution, pooling, and fully connected layers forms the core structure of a CNN and enables it to learn and recognize complex patterns in images or other data.
+Press enter or click to view image in full size
+Image Source: Analytics Vidhya
+
+In conclusion, this blog post marks the end of our exploration into the foundational theory of Convolutional Neural Networks (ConvNets). With this fundamental knowledge in place, we are now ready to embark on an exciting journey exploring the practical applications of ConvNets using TensorFlow.
+
+In the upcoming blogs, we will dive into the practical implementation of ConvNets for various problems such as Classification, Localization, Object Detection, etc. By leveraging the power of TensorFlow, we will uncover how ConvNets can be harnessed to solve real-world challenges, pushing the boundaries of computer vision and paving the way for groundbreaking advancements in artificial intelligence.
+
+So, stay tuned as we embark on this exhilarating journey, where theory meets practicality, and ConvNets transform into powerful tools for solving complex visual problems.
+
+I hope you enjoyed this article! You can follow me Afaque Umer for more such articles.
+
+I will try to bring up more Machine learning/Data science concepts and will try to break down fancy-sounding terms and concepts into simpler ones.
